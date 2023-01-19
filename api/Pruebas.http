@@ -1,0 +1,48 @@
+### // SEARCH ALL GAMES
+GET  http://localhost:3001/videogames HTTP/1.1
+
+### // SEARCH A GAME BY ID
+GET  http://localhost:3001/videogames/3328 HTTP/1.1
+
+### // SEARCH A GAME BY GENRE
+GET  http://localhost:3001/genres/Platformer HTTP/1.1
+
+### // SEARCH ALL GENRES
+GET  http://localhost:3001/genres HTTP/1.1
+
+### // SEARCH ALL PLATFORMS
+GET  http://localhost:3001/platforms HTTP/1.1
+
+### // DELETE A GAME
+DELETE http://localhost:3001/videogames/0cbbed07-e35a-4945-a04e-6b4dcbc22e0b HTTP/1.1
+
+### // SEARCH A GAME BY NAME
+GET  http://localhost:3001/videogames?name=2024 HTTP/1.1
+
+### // CREATE A NEW GAME
+POST http://localhost:3001/videogames HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Fifa 2024",
+    "image": "https://acortar.link/2vXTcJ",
+    "description": "Football Game",
+    "releaseDate": "1-1-2011",
+    "rating": "5",
+    "platforms": ["Xbox One", "PlayStation 5", "PC"],
+    "genres": ["Indie"]
+}
+
+### // MODIFY A GAME
+PUT http://localhost:3001/videogames/6e65b75b-63c1-4932-8591-70bc34745a27 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Mario Kart",
+    "image": "https://acortar.link/2vXTcJ",
+    "description": "Racing Game",
+    "releaseDate": "2-2-2022",
+    "rating": "3",
+    "platforms": ["Android", "PlayStation 5", "PC"],
+    "genres": ["RPG"]
+}

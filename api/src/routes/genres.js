@@ -6,7 +6,7 @@ const { API_KEY } = process.env;
 const router = Router();
 
 const getApiInfo = async () => {
-  /*   const fisrtPage = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
+    const fisrtPage = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
        const games = [];
        games.push(...fisrtPage.data.results);
   
@@ -29,8 +29,8 @@ const getApiInfo = async () => {
       };
     });
       const finalData = await Promise.all(apiInfo).then((data) => data);
-      return finalData */
-      const apiUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
+      return finalData
+      /* const apiUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
       const apiInfo = await apiUrl.data.results.map(el => {
         return {
           id: el.id,
@@ -43,7 +43,7 @@ const getApiInfo = async () => {
           genres: el.genres.map(el => el.name),
         }
       })
-      return apiInfo;
+      return apiInfo; */
 };
   
 const getDbInfo = async () => {

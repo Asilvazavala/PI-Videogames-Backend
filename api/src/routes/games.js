@@ -6,7 +6,7 @@ const { API_KEY } = process.env;
 const router = Router();
 
 const getApiInfo = async () => {
-  /*   const fisrtPage = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
+    const fisrtPage = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
        const games = [];
        games.push(...fisrtPage.data.results);
   
@@ -29,8 +29,8 @@ const getApiInfo = async () => {
       };
     });
       const finalData = await Promise.all(apiInfo).then((data) => data);
-      return finalData */
-      const apiUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
+      return finalData
+      /* const apiUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
       const apiInfo = await apiUrl.data.results.map(el => {
         return {
           id: el.id,
@@ -43,7 +43,7 @@ const getApiInfo = async () => {
           genres: el.genres.map(el => el.name),
         }
       })
-      return apiInfo;
+      return apiInfo; */
 };
   
 const getDbInfo = async () => {
@@ -123,17 +123,18 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const id = req.params.id;
   const gamesTotal = await getAllGames();
+  let index = await gamesTotal.findIndex(game => game.id == id);
+  
+  if(index >= 0) {
+    gamesTotal.splice(index, 1);
+    res.send('Game deleted succesfully!!');
+  }
+  res.status(404).end();
 
   if(id) {
     await Videogames.destroy({
       where : {id : id}
     })
-    let index = await gamesTotal.findIndex(game => game.id == id);
-    if(index >= 0) {
-      gamesTotal.splice(index, 1);
-      res.send('Game deleted succesfully!!');
-    }
-    res.status(404).end();
   }
 });
 

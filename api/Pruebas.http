@@ -17,7 +17,7 @@ GET  http://localhost:3001/platforms HTTP/1.1
 DELETE http://localhost:3001/videogames/0cbbed07-e35a-4945-a04e-6b4dcbc22e0b HTTP/1.1
 
 ### // SEARCH A GAME BY NAME
-GET  http://localhost:3001/videogames?name=2024 HTTP/1.1
+GET  http://localhost:3001/videogames?name=coUnteR HTTP/1.1
 
 ### // CREATE A NEW GAME
 POST http://localhost:3001/videogames HTTP/1.1
